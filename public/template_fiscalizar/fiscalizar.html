@@ -1,0 +1,240 @@
+<!-- <widget-header titulo = 'TELA DE FISCALIZAÇÃO'></widget-header> -->
+<div class="corpo">
+		<nav class="navbar navbar-inverse">
+  			<div class="container">
+		   		<ul class="nav nav-pills">
+		   			<li role="presentation" class="active"><a href="/#/fiscalizar">Fiscalizar</a></li>
+		  			<li role="presentation"><a href="/#/buscar">Buscar</a></li>
+
+		  			<li role="presentation"><a href="" class="usuario">Fiscal: {{vm.user}}</a></li>
+
+		  			<li role="presentation"><a href="" class="usuario">Matrícula: {{vm.matricula}}</a></li>
+
+		  			<li ng-click="vm.logoff()"><a href="/#/" class="logoff">logoff</a></li>
+		  		</ul>
+  			</div>
+		</nav>
+		<form name="myForm">
+			<div class="form-group">
+	    		
+				<center><span class="error" ng-show="vm.showError">{{vm.message}}</span></center>
+
+	    		<div class="resposta">
+
+	    			<div class="escolha fonteBranca"">
+
+		    			<div class="form-check">
+	  						<input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+	  						<label class="form-check-label" for="exampleRadios1">1746
+	  						</label>
+						</div>
+
+						<div class="form-check">
+	  						<input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+	  						<label class="form-check-label" for="exampleRadios2">
+	    					OUVIDORIA
+	  						</label>
+						</div>
+
+					</div>
+
+					
+				<div class="container">
+    				<div class="row">
+        				<div class='col-sm-6'>
+            				<div class="form-group">
+                				<div class='input-group date' id='datetimepicker2'>
+                    			<input id="data" type='text' class="form-control" ng-model="vm.ouvidoria.data" ng-change="vm.atualisarData()"/>
+                    			<span class="input-group-addon">
+                        		<span class="glyphicon glyphicon-calendar"></span>
+                    			</span>
+                				</div>
+            				</div>
+        				</div>
+				        <script type="text/javascript">
+				            $(function () {
+				                $('#datetimepicker2').datetimepicker({
+				                	format: "DD/MM/YYYY hh:mm"
+				                });
+				            });
+				        </script>,
+    				</div>
+				</div>
+
+					<label class="fonteBranca">NÚMERO DA OUVIDORIA/1746</label>
+	    			<input type="number" class="form-control" ng-model='vm.ouvidoria.numero' placeholder="informe o número">
+		    	
+			    	<label class="fonteBranca">BAIRRO</label>
+			  		<select ng-model='vm.ouvidoria.bairro' class="form-control" ng-options="item.bairro for item in vm.bairros track by item.bairro" ng-change="vm.pegaRuas(vm.ouvidoria.bairro)"></select>
+
+					<label class="fonteBranca">LOGRADOURO</label>
+					<span class="glyphicon glyphicon-refresh glyphicon-refresh-animate" ng-show="vm.mostrarLoading">
+	          		</span>
+					<select class="form-control" ng-model='vm.ouvidoria.logradouro' ng-options="local.logradouro for local in vm.ruas track by local.logradouro">
+					</select>
+
+					<label class="fonteBranca">TIPO</label>
+			  		<select ng-model='vm.ouvidoria.tipo' class="form-control" ng-options="item for item in vm.tipos" ng-change="vm.escolheAcao(vm.ouvidoria.tipo)"></select>
+	    		
+	    		</div>
+			</div>
+		</form>
+
+		<div class="fonteBranca" ng-show="vm.mostrar01">
+			<label class="fonteBranca">CONSTATAÇÃO</label>
+			<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" ng-model='vm.ouvidoria.constatadoEfetiva'></textarea>
+
+			<label class="fonteBranca">AÇÃO ADOTADA</label>
+			<select ng-model='vm.ouvidoria.acaoAdotadaEfetiva' class="form-control" ng-options="item for item in vm.acoesEfetiva"></select>
+
+			<button type="button" class="btn btn-primary btn-lg btn-block resposta"  ng-click="vm.gerarResp01()">Gerar Resposta Padrão</button>
+			<p class="fonteBranca justificado">{{vm.resp01}}</p>
+			
+		</div>
+
+		<div class="fonteBranca" ng-show="vm.mostrar02">
+			<label class="fonteBranca">CONSTATAÇÃO</label>
+			<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" ng-model='vm.ouvidoria.constatadoNEfetiva'></textarea>
+
+			<label class="fonteBranca">AÇÃO ADOTADA</label>
+			<select ng-model='vm.ouvidoria.acaoAdotadaNEfetiva' class="form-control" ng-options="item for item in vm.acoesNEfetiva"></select>
+
+			<button type="button" class="btn btn-primary btn-lg btn-block resposta"  ng-click="vm.gerarResp02()">Gerar Resposta Padrão</button>
+			<p class="fonteBranca justificado">{{vm.resp02}}</p>
+		</div>
+
+		<div class="fonteBranca" ng-show="vm.mostrar03">
+			<label class="fonteBranca">NÚMERO DO PROCESSO</label>
+	    	<input type="text" class="form-control" ng-model='vm.ouvidoria.processoComMedidas' placeholder="informe o número do processo">
+
+			<label class="fonteBranca">CONSTATAÇÃO</label>
+			<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" ng-model='vm.ouvidoria.constatadoProcessoComMedidas'></textarea>
+
+			<label class="fonteBranca">AÇÃO ADOTADA</label>
+			<select ng-model='vm.ouvidoria.acaoAdotadaProcessoComMedidas' class="form-control" ng-options="item for item in vm.acoesVistoriaMedidasIniciais"></select>
+
+			<button type="button" class="btn btn-primary btn-lg btn-block resposta"  ng-click="vm.gerarResp03()">Gerar Resposta Padrão</button>
+			<p class="fonteBranca justificado">{{vm.resp03}}</p>
+
+		</div>
+
+		<div class="fonteBranca" ng-show="vm.mostrar04">
+			<label class="fonteBranca">CONSTATAÇÃO</label>
+			<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" ng-model='vm.ouvidoria.constatadoProcessoSemMedidas'></textarea>
+
+			<label class="fonteBranca">NÚMERO DO PROCESSO</label>
+	    	<input type="text" class="form-control" ng-model='vm.ouvidoria.processoSemMedidas' placeholder="informe o número do processo">
+
+	    	<button type="button" class="btn btn-primary btn-lg btn-block resposta"  ng-click="vm.gerarResp04()">Gerar Resposta Padrão</button>
+			<p class="fonteBranca justificado">{{vm.resp04}}</p>
+		</div>
+
+		<div class="fonteBranca" ng-show="vm.mostrar05">
+			<label class="fonteBranca">NÚMERO DO PROCESSO</label>
+	    	<input type="text" class="form-control" ng-model='vm.ouvidoria.processoRisco' placeholder="informe o número do processo">
+
+	    	<button type="button" class="btn btn-primary btn-lg btn-block resposta"  ng-click="vm.gerarResp05()">Gerar Resposta Padrão</button>
+			<p class="fonteBranca justificado">{{vm.resp05}}</p>
+		</div>
+
+		<div class="fonteBranca" ng-show="vm.mostrar06">
+			<label class="fonteBranca">NÚMERO DO PROCESSO</label>
+	    	<input type="text" class="form-control" ng-model='vm.ouvidoria.processoOperacao' placeholder="informe o número do processo">
+
+	    	<button type="button" class="btn btn-primary btn-lg btn-block resposta"  ng-click="vm.gerarResp06()">Gerar Resposta Padrão</button>
+			<p class="fonteBranca justificado">{{vm.resp06}}</p>
+		</div>
+
+		<div class="fonteBranca" ng-show="vm.mostrar07">
+			<label class="fonteBranca">NÚMERO DO PROCESSO</label>
+	    	<input type="text" class="form-control" ng-model='vm.ouvidoria.processoPolis' placeholder="informe o número do processo">
+
+	    	<button type="button" class="btn btn-primary btn-lg btn-block resposta"  ng-click="vm.gerarResp07()">Gerar Resposta Padrão</button>
+			<p class="fonteBranca justificado">{{vm.resp07}}</p>
+		</div>
+
+		<div class="fonteBranca" ng-show="vm.mostrar08">
+			<label class="fonteBranca">DETALHES DA OPERAÇÃO</label>
+			<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" ng-model='vm.ouvidoria.detalhesOperacao'></textarea>
+
+			<button type="button" class="btn btn-primary btn-lg btn-block resposta"  ng-click="vm.gerarResp08()">Gerar Resposta Padrão</button>
+			<p class="fonteBranca justificado">{{vm.resp08}}</p>
+		</div>
+
+		<div class="fonteBranca" ng-show="vm.mostrar09">
+			<label class="fonteBranca">OBSERVAÇÕES</label>
+			<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" ng-model='vm.ouvidoria.obsAtipica'></textarea>
+
+			<button type="button" class="btn btn-primary btn-lg btn-block resposta"  ng-click="vm.gerarResp09()">Gerar Resposta Padrão</button>
+			<p class="fonteBranca justificado">{{vm.resp09}}</p>
+		</div>
+
+		<div class="fonteBranca" ng-show="vm.mostrar10">
+		<button type="button" class="btn btn-primary btn-lg btn-block resposta"  ng-click="vm.gerarResp10()">Gerar Resposta Padrão</button>
+			<p class="fonteBranca justificado">{{vm.resp10}}</p>
+		</div>
+
+		<div class="fonteBranca" ng-show="vm.mostrar11">
+			<label class="fonteBranca">CONSTATAÇÃO</label>
+			<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" ng-model='vm.ouvidoria.constatadoNenhumaInfracao'></textarea>
+
+			<button type="button" class="btn btn-primary btn-lg btn-block resposta"  ng-click="vm.gerarResp11()">Gerar Resposta Padrão</button>
+			<p class="fonteBranca justificado">{{vm.resp11}}</p>
+		</div>
+
+		<div class="fonteBranca" ng-show="vm.mostrar12">
+			<label class="fonteBranca">INCONSISTÊNCIA</label>
+			<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" ng-model='vm.ouvidoria.inconsistenciaAnalise'></textarea>
+
+			<label class="fonteBranca">DETALHES</label>
+			<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" ng-model='vm.ouvidoria.detalheAnalise'></textarea>
+
+			<button type="button" class="btn btn-primary btn-lg btn-block resposta"  ng-click="vm.gerarResp12()">Gerar Resposta Padrão</button>
+			<p class="fonteBranca justificado">{{vm.resp12}}</p>
+		</div>
+
+		<div class="fonteBranca" ng-show="vm.mostrar13">
+			<label class="fonteBranca">INCONSISTÊNCIA</label>
+			<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" ng-model='vm.ouvidoria.inconsistenciaVistoria'></textarea>
+
+			<label class="fonteBranca">DETALHES</label>
+			<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" ng-model='vm.ouvidoria.detalheVistoria'></textarea>
+
+			<button type="button" class="btn btn-primary btn-lg btn-block resposta"  ng-click="vm.gerarResp13()">Gerar Resposta Padrão</button>
+			<p class="fonteBranca justificado">{{vm.resp13}}</p>
+		</div>
+
+		<div class="fonteBranca" ng-show="vm.mostrar14">
+			<label class="fonteBranca">ANÁLISE</label>
+			<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" ng-model='vm.ouvidoria.analiseDeCompetencia'></textarea>
+
+			<label class="fonteBranca">ÓRGÃO COMPETENTE</label>
+			<select ng-model='vm.ouvidoria.orgaoCompetenteAnalise' class="form-control" ng-options="item for item in vm.orgaos""></select>
+
+			<button type="button" class="btn btn-primary btn-lg btn-block resposta"  ng-click="vm.gerarResp14()">Gerar Resposta Padrão</button>
+			<p class="fonteBranca justificado">{{vm.resp14}}</p>
+		</div>
+
+		<div class="fonteBranca" ng-show="vm.mostrar15">
+			<label class="fonteBranca">ANÃLISE</label>
+			<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" ng-model='vm.ouvidoria.vistoriaDeCompetencia'></textarea>
+
+			<label class="fonteBranca">ÓRGÃO COMPETENTE</label>
+			<select ng-model='vm.ouvidoria.orgaoCompetenteVistoria' class="form-control" ng-options="item for item in vm.orgaos""></select>
+
+			<button type="button" class="btn btn-primary btn-lg btn-block resposta"  ng-click="vm.gerarResp15()">Gerar Resposta Padrão</button>
+			<p class="fonteBranca justificado">{{vm.resp15}}</p>
+		</div>
+
+		<div class="corpoProdutos fonteBranca">
+		 	<button type="button" class="btn btn-primary btn-lg btn-block"  ng-click="vm.enviar(vm.ouvidoria)" ng-show="vm.mostrarEnviar">Enviar</button>
+
+		</div>
+
+		
+
+
+</div>
+
+
+	

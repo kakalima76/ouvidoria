@@ -1,0 +1,47 @@
+<widget-header titulo = 'COORDENADORIA DE CONTROLE URBANO'></widget-header>
+
+<div class="home fonteBranca">
+  <center><span class="error" ng-show="vm.showError">{{vm.message}}</span></center>
+	<form ng-submit="vm.submit()">
+
+ 
+  		<div class="form-group">
+    		<label for="email">Email</label>
+    			<input type="email" class="form-control" id="email" placeholder="email" ng-model='vm.usuario.email'>
+  		</div>
+  
+  		<div class="form-group">
+    			<label for="senha">Senha</label>
+    				<input type="password" class="form-control" id="senha" placeholder="senha" ng-model='vm.usuario.pass'>
+  		</div>
+
+
+       <div
+      id="html-element"
+      vc-recaptcha
+      key="'6Le5G1UUAAAAABMi09LCQ229BkNOnITT2AQ5vtkz'"
+      ng-model="vm.usuario.myRecaptchaResponse"
+      ></div>
+
+        
+      <input type="submit" id="submit" class="btn btn-default corpoProdutos" value="Logar" />  
+      
+      <div class="fonteBranca distanciaHorizontal">
+      <center>
+      <a  class="fonteBranca" ng-href="/solicitar">Não possui login? Faça seu cadastro.</a>
+      </center>
+      </div>
+     
+
+      <div class="fonteBranca distanciaHorizontal">
+      <center>
+      <a  class="fonteBranca " ng-href="/trocar">Esqueceu a senha?</a>
+      </center>
+      </div>
+    
+        
+
+    </div>
+	</form>
+
+ </div>
