@@ -183,7 +183,7 @@ angular.module('app')
 		" horas, onde constatou " + vm.ouvidoria.constatadoProcessoComMedidas + 
 		". A ação adotada foi " + vm.ouvidoria.acaoAdotadaProcessoComMedidas + 
 		". Para realizar operação de ordenamento urbano foi aberto o processo administrativo " + 
-		vm.ouvidoria.processoComMedidas + " e será necessário apoio de outros órgãos públicos. Acompanhe o andamento do processo pelo site http://www2.rio.rj.gov.br/sicop/ . A Coordenadoria de Controle Urbano agradece a sua solicitação!"
+		vm.ouvidoria.processoComMedidas.toString() + " e será necessário apoio de outros órgãos públicos. Acompanhe o andamento do processo pelo site http://www2.rio.rj.gov.br/sicop/ . A Coordenadoria de Controle Urbano agradece a sua solicitação!"
 	}
 
 	vm.gerarResp04 = function(){
@@ -196,7 +196,7 @@ angular.module('app')
 		vm.resp04 = "A equipe vistoriou o local em " + dia + " às " + hora + 
 		" horas, onde constatou " + vm.ouvidoria.constatadoProcessoSemMedidas + 
 		". Para realizar operação de ordenamento urbano foi aberto o processo administrativo " +
-		vm.ouvidoria.processoSemMedidas + " e será necessário apoio de outros órgãos públicos. Acompanhe o andamento do processo pelo site http://www2.rio.rj.gov.br/sicop/ . A Coordenadoria de Controle Urbano agradece a sua solicitação!"
+		vm.ouvidoria.processoSemMedidas.toString() + " e será necessário apoio de outros órgãos públicos. Acompanhe o andamento do processo pelo site http://www2.rio.rj.gov.br/sicop/ . A Coordenadoria de Controle Urbano agradece a sua solicitação!"
 	}
 
 	vm.gerarResp05 = function(){
@@ -207,19 +207,19 @@ angular.module('app')
 		vm.mostrarEnviar = true;
 
 		vm.resp05 = "Informamos que a sua solicitação foi incluída no processo administrativo " + 
-		+ vm.ouvidoria.processoRisco + " com objetivo de planejar operação de ordenamento urbano, o que dependerá do forte apoio dos órgãos de segurança. Acompanhe o andamento do processo pelo site http://www2.rio.rj.gov.br/sicop/ . A Coordenadoria de Controle Urbano agradece a sua solicitação!"
+		+ vm.ouvidoria.processoRisco.toString() + " com objetivo de planejar operação de ordenamento urbano, o que dependerá do forte apoio dos órgãos de segurança. Acompanhe o andamento do processo pelo site http://www2.rio.rj.gov.br/sicop/ . A Coordenadoria de Controle Urbano agradece a sua solicitação!"
 	}
 
 	vm.gerarResp06 = function(){
 		vm.mostrarEnviar = true;
 
 		vm.resp06 = "Informamos que a sua solicitação foi incluída no processo administrativo " + 
-		+ vm.ouvidoria.processoOperacao + " e será realizada operação de ordenamento urbano com apoio de outros órgãos públicos. Acompanhe o andamento do processo pelo site http://www2.rio.rj.gov.br/sicop/ . A Coordenadoria de Controle Urbano agradece a sua solicitação!"
+		+ vm.ouvidoria.processoOperacao.toString() + " e será realizada operação de ordenamento urbano com apoio de outros órgãos públicos. Acompanhe o andamento do processo pelo site http://www2.rio.rj.gov.br/sicop/ . A Coordenadoria de Controle Urbano agradece a sua solicitação!"
 	}
 
 	vm.gerarResp07 = function(){
 
-		vm.resp07 = "Informamos que a sua solicitação foi incluída no processo administrativo " + 
+		vm.resp07 = "Informamos que a sua solicitação foi incluída no processo administrativo " 
 		+ vm.ouvidoria.processoPolis + " com objetivo de legalizar e organizar as atividades no local. Acompanhe o andamento do processo pelo site http://www2.rio.rj.gov.br/sicop/ . A Coordenadoria de Controle Urbano agradece a sua solicitação!"
 	}
 
@@ -242,8 +242,8 @@ angular.module('app')
 		var hora = data.substring(10);
 		vm.mostrarEnviar = true;
 
-		vm.resp09 = "A equipe realizou operação de ordenamento urbano no local em " + dia + " às " + hora +
-		" horas, e " + vm.ouvidoria.obsAtipica + "."   
+		vm.resp09 = "Em " + dia + " às " + hora +
+		" horas, foi observado " + vm.ouvidoria.obsAtipica + "."   
 		
 	}
 
