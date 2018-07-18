@@ -1,5 +1,5 @@
 angular.module('app')
-.controller('fiscalizarController', ['tiposService', '$window', 'loginService', 'cpfService', 'cepService', 'bairrosService', 'validaCPF', 'fiscalizadoService', function(tiposService, $window, loginService, cpfService, cepService, bairrosService, validaCPF, fiscalizadoService){
+.controller('fiscalizarController', ['tiposService', '$window', 'loginService', 'cpfService', 'cepService', 'bairrosService', 'validaCPF', 'fiscalizadoService', 'ouvidoriaService', function(tiposService, $window, loginService, cpfService, cepService, bairrosService, validaCPF, fiscalizadoService, ouvidoriaService){
 	var vm = this;
 	vm.mostrarTagMulta = false
 	vm.ouvidoria = {};
@@ -90,6 +90,7 @@ angular.module('app')
 	//mostra apenas a div que contém as informações necessárias para
 	//compor o objeto de resposta
 	vm.escolheAcao = function(value){
+
 			arrayTipos = tiposService.get();
 			var tipo = arrayTipos.indexOf(value);
 			esconde(); //esconde todas as tags de resposta
@@ -140,7 +141,6 @@ angular.module('app')
         		case 14:
         		vm.mostrar15 = true;
         		break;
-    			
 			}
 	};
 
@@ -157,6 +157,8 @@ angular.module('app')
 		", às " + hora + " horas, onde constatou " + 
 		vm.ouvidoria.constatadoEfetiva + ". A ação adotada foi " + vm.ouvidoria.acaoAdotadaEfetiva + 
 		". Caso a irregularidade retorne, favor registrar novo chamado 1746. A Coordenadoria de Controle Urbano agradece a confiança!";
+	
+		vm.ouvidoria.resposta = vm.resp01;
 	}
 
 	vm.gerarResp02 = function(){
@@ -170,6 +172,8 @@ angular.module('app')
 		" horas, onde constatou " + vm.ouvidoria.constatadoNEfetiva + 
 		". A ação adotada foi " + vm.ouvidoria.acaoAdotadaNEfetiva + 
 		". Caso a irregularidade persista, favor registrar uma reclamação por meio da Central 1746. A Coordenadoria de Controle Urbano agradece a confiança!"
+	
+		vm.ouvidoria.resposta = vm.resp02;
 	}
 
 	vm.gerarResp03 = function(){
@@ -184,6 +188,8 @@ angular.module('app')
 		". A ação adotada foi " + vm.ouvidoria.acaoAdotadaProcessoComMedidas + 
 		". Para realizar operação de ordenamento urbano foi aberto o processo administrativo " + 
 		vm.ouvidoria.processoComMedidas.toString() + " e será necessário apoio de outros órgãos públicos. Acompanhe o andamento do processo pelo site http://www2.rio.rj.gov.br/sicop/ . A Coordenadoria de Controle Urbano agradece a sua solicitação!"
+	
+		vm.ouvidoria.resposta = vm.resp03;
 	}
 
 	vm.gerarResp04 = function(){
@@ -197,6 +203,8 @@ angular.module('app')
 		" horas, onde constatou " + vm.ouvidoria.constatadoProcessoSemMedidas + 
 		". Para realizar operação de ordenamento urbano foi aberto o processo administrativo " +
 		vm.ouvidoria.processoSemMedidas.toString() + " e será necessário apoio de outros órgãos públicos. Acompanhe o andamento do processo pelo site http://www2.rio.rj.gov.br/sicop/ . A Coordenadoria de Controle Urbano agradece a sua solicitação!"
+	
+		vm.ouvidoria.resposta = vm.resp04;
 	}
 
 	vm.gerarResp05 = function(){
@@ -208,6 +216,8 @@ angular.module('app')
 
 		vm.resp05 = "Informamos que a sua solicitação foi incluída no processo administrativo " + 
 		+ vm.ouvidoria.processoRisco.toString() + " com objetivo de planejar operação de ordenamento urbano, o que dependerá do forte apoio dos órgãos de segurança. Acompanhe o andamento do processo pelo site http://www2.rio.rj.gov.br/sicop/ . A Coordenadoria de Controle Urbano agradece a sua solicitação!"
+	
+		vm.ouvidoria.resposta = vm.resp05;
 	}
 
 	vm.gerarResp06 = function(){
@@ -215,12 +225,16 @@ angular.module('app')
 
 		vm.resp06 = "Informamos que a sua solicitação foi incluída no processo administrativo " + 
 		+ vm.ouvidoria.processoOperacao.toString() + " e será realizada operação de ordenamento urbano com apoio de outros órgãos públicos. Acompanhe o andamento do processo pelo site http://www2.rio.rj.gov.br/sicop/ . A Coordenadoria de Controle Urbano agradece a sua solicitação!"
+	
+		vm.ouvidoria.resposta = vm.resp06;
 	}
 
 	vm.gerarResp07 = function(){
 
 		vm.resp07 = "Informamos que a sua solicitação foi incluída no processo administrativo " 
 		+ vm.ouvidoria.processoPolis + " com objetivo de legalizar e organizar as atividades no local. Acompanhe o andamento do processo pelo site http://www2.rio.rj.gov.br/sicop/ . A Coordenadoria de Controle Urbano agradece a sua solicitação!"
+	
+		vm.ouvidoria.resposta = vm.resp07;
 	}
 
 	vm.gerarResp08 = function(){
@@ -233,6 +247,8 @@ angular.module('app')
 		vm.resp08 = "A equipe realizou operação de ordenamento urbano no local em " + dia + " às " + hora +
 		" horas, e " + vm.ouvidoria.detalhesOperacao +  
 		". Caso a irregularidade retorne, favor registrar novo chamado 1746. A Coordenadoria de Controle Urbano agradece a confiança!"
+	
+		vm.ouvidoria.resposta = vm.resp08;
 	}
 
 	vm.gerarResp09 = function(){
@@ -243,8 +259,9 @@ angular.module('app')
 		vm.mostrarEnviar = true;
 
 		vm.resp09 = "Em " + dia + " às " + hora +
-		" horas, foi observado " + vm.ouvidoria.obsAtipica + "."   
-		
+		" horas, foi observado " + vm.ouvidoria.obsAtipica + "."   	
+	
+		vm.ouvidoria.resposta = vm.resp09;
 	}
 
 	vm.gerarResp10 = function(){
@@ -255,8 +272,9 @@ angular.module('app')
 		vm.mostrarEnviar = true;
 
 		vm.resp10 = "A equipe realizou operação de ordenamento urbano no local em " + dia + " às " + hora +
-		" horas, e não foram constatadas evidências de irregularidades. Caso a irregularidade retorne, favor registrar novo chamado 1746. A Coordenadoria de Controle Urbano agradece a confiança!"   
-		
+		" horas, e não foram constatadas evidências de irregularidades. Caso a irregularidade retorne, favor registrar novo chamado 1746. A Coordenadoria de Controle Urbano agradece a confiança!"   		
+	
+		vm.ouvidoria.resposta = vm.resp10;
 	}
 
 	vm.gerarResp11 = function(){
@@ -267,8 +285,9 @@ angular.module('app')
 		vm.mostrarEnviar = true;
 
 		vm.resp11 = "A equipe realizou operação de ordenamento urbano no local em " + dia + " às " + hora +
-		" horas, onde constatou " +  vm.ouvidoria.constatadoNenhumaInfracao  + ". No momento da fiscalização, não ocorriam irregularidades. Caso ocorram, favor registrar novo chamado 1746. A Coordenadoria de Controle Urbano agradece a confiança!"   
-		
+		" horas, onde constatou " +  vm.ouvidoria.constatadoNenhumaInfracao  + ". No momento da fiscalização, não ocorriam irregularidades. Caso ocorram, favor registrar novo chamado 1746. A Coordenadoria de Controle Urbano agradece a confiança!"   	
+	
+		vm.ouvidoria.resposta = vm.resp11;
 	}
 
 	vm.gerarResp12 = function(){
@@ -280,8 +299,9 @@ angular.module('app')
 
 		vm.resp12 = "A equipe realizou operação de ordenamento urbano no local em " + dia + " às " + hora +
 		" horas, e não foi possível atendê-lo porque " +  vm.ouvidoria.inconsistenciaAnalise + 
-		". Favor registrar novo chamado 1746 contendo " +  vm.ouvidoria.detalheAnalise + ". A Coordenadoria de Controle Urbano agradece a sua solicitação!"   
-		
+		". Favor registrar novo chamado 1746 contendo " +  vm.ouvidoria.detalheAnalise + ". A Coordenadoria de Controle Urbano agradece a sua solicitação!"   	
+	
+		vm.ouvidoria.resposta = vm.resp12;
 	}
 
 	vm.gerarResp13 = function(){
@@ -293,8 +313,9 @@ angular.module('app')
 
 		vm.resp13 = "A equipe vistoriou o local em " + dia + " às " + hora +
 		" horas, e não foi possível atendê-lo porque " +  vm.ouvidoria.inconsistenciaVistoria + 
-		". Favor registrar novo chamado 1746 contendo " +  vm.ouvidoria.detalheVistoria + ". A Coordenadoria de Controle Urbano agradece a sua solicitação!"   
-		
+		". Favor registrar novo chamado 1746 contendo " +  vm.ouvidoria.detalheVistoria + ". A Coordenadoria de Controle Urbano agradece a sua solicitação!"   	
+	
+		vm.ouvidoria.resposta = vm.resp13;
 	}
 
 	vm.gerarResp14 = function(){
@@ -307,8 +328,9 @@ angular.module('app')
 		vm.resp14 = "A equipe analisou sua solicitação em " + dia + " às " + hora +
 		" horas, e não foi possível atendê-lo porque se trata de " +  vm.ouvidoria.analiseDeCompetencia + 
 		" A Coordenadoria de Controle Urbano fiscaliza atividades econômicas exercidas em áreas públicas. " +
-		"Por isso, sua solicitação será transferida a " + vm.ouvidoria.orgaoCompetenteAnalise + "."   
-		
+		"Por isso, sua solicitação será transferida a " + vm.ouvidoria.orgaoCompetenteAnalise + "."   	
+	
+		vm.ouvidoria.resposta = vm.resp14;
 	}
 
 	vm.gerarResp15 = function(){
@@ -321,14 +343,53 @@ angular.module('app')
 		vm.resp15 = "A equipe vistoriou o local em " + dia + " às " + hora +
 		" horas, e não foi possível atendê-lo porque se trata de " +  vm.ouvidoria.vistoriaDeCompetencia + 
 		" A Coordenadoria de Controle Urbano fiscaliza atividades econômicas exercidas em áreas públicas. " +
-		"Por isso, sua solicitação será transferida a " + vm.ouvidoria.orgaoCompetenteVistoria + "."   
-		
+		"Por isso, sua solicitação será transferida a " + vm.ouvidoria.orgaoCompetenteVistoria + "."   		
+	
+		vm.ouvidoria.resposta = vm.resp15;
+	}
+
+	function isEmpty(val){
+    	return (val === undefined || val == null || val.length <= 0) ? true : false;
 	}
 
 	vm.enviar = function(value){
 		/*vm.ouvidoria.data = document.getElementById("data").value*/
-		console.log(vm.ouvidoria.data);
-		console.log(document.getElementById("data").value)
+		
+		if
+			(
+				isEmpty(vm.ouvidoria.especie) || isEmpty(vm.ouvidoria.data) || isEmpty(vm.ouvidoria.bairro) || isEmpty(vm.ouvidoria.logradouro) || isEmpty(vm.ouvidoria.numero) || isEmpty(vm.ouvidoria.tipo) || isEmpty(vm.ouvidoria.complemento)
+			)
+		{
+			$window.alert("Preencha os campos superiores!")
+		}else
+		{
+			
+			var obj = 
+				{
+
+					'matricula': vm.matricula,
+					'nome': vm.user,
+					'numero': vm.ouvidoria.numero,
+					'tipo': vm.ouvidoria.tipo,
+					'especie': vm.ouvidoria.especie,
+					'bairro': vm.ouvidoria.bairro.bairro,
+					'logradouro': vm.ouvidoria.logradouro.logradouro,
+					'complemento': vm.ouvidoria.complemento,
+					'cep': vm.ouvidoria.cep || '',
+					'resposta': vm.ouvidoria.resposta || ''
+				}
+
+			var promise = ouvidoriaService.inserir(obj);
+
+			promise
+
+			.then(function(lista){
+
+				vm.ouvidoria = {}
+			})
+		}
+
+		
 	}
 
 	

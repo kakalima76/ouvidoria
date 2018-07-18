@@ -1,12 +1,14 @@
-<!-- <widget-header titulo = 'TELA DE FISCALIZAÇÃO'></widget-header> -->
+<widget-header titulo = 'TELA DE FISCALIZAÇÃO'></widget-header>
 <div class="corpo">
 		<nav class="navbar navbar-inverse">
   			<div class="container">
 		   		<ul class="nav nav-pills">
 		   			<li role="presentation" class="active"><a href="/#/fiscalizar">Fiscalizar</a></li>
-		  			<li role="presentation"><a href="/#/buscar">Buscar</a></li>
+		  			<li role="presentation"><a href="/#/buscar">Buscar por número</a></li>
 
-		  			<li role="presentation"><a href="" class="usuario">Fiscal: {{vm.user}}</a></li>
+		  			<li role="presentation"><a href="/#/buscarBairro">Buscar por local</a></li>
+
+		  			<li role="presentation"><a href="" class="usuario">Agente: {{vm.user}}</a></li>
 
 		  			<li role="presentation"><a href="" class="usuario">Matrícula: {{vm.matricula}}</a></li>
 
@@ -24,13 +26,13 @@
 	    			<div class="escolha fonteBranca"">
 
 		    			<div class="form-check">
-	  						<input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+	  						<input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="1746" checked ng-model="vm.ouvidoria.especie">
 	  						<label class="form-check-label" for="exampleRadios1">1746
 	  						</label>
 						</div>
 
 						<div class="form-check">
-	  						<input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+	  						<input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="ouvidoria" ng-model="vm.ouvidoria.especie">
 	  						<label class="form-check-label" for="exampleRadios2">
 	    					OUVIDORIA
 	  						</label>
@@ -38,7 +40,8 @@
 
 					</div>
 
-					
+				<label class="fonteBranca corpoProdutos">DATA E HORA</label>
+
 				<div class="container">
     				<div class="row">
         				<div class='col-sm-6'>
@@ -72,6 +75,9 @@
 	          		</span>
 					<select class="form-control" ng-model='vm.ouvidoria.logradouro' ng-options="local.logradouro for local in vm.ruas track by local.logradouro">
 					</select>
+
+					<label class="fonteBranca">COMPLEMENTO</label>
+	    			<input type="text" class="form-control" ng-model='vm.ouvidoria.complemento' placeholder="informe o número">
 
 					<label class="fonteBranca">TIPO</label>
 			  		<select ng-model='vm.ouvidoria.tipo' class="form-control" ng-options="item for item in vm.tipos" ng-change="vm.escolheAcao(vm.ouvidoria.tipo)"></select>

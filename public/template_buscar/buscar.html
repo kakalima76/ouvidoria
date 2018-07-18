@@ -1,0 +1,87 @@
+<widget-header titulo = 'TELA DE CONSULTA'></widget-header>
+<div class="corpo">
+		<nav class="navbar navbar-inverse">
+  			<div class="container">
+		   		<ul class="nav nav-pills">
+		   			<li role="presentation" ><a href="/#/fiscalizar">Fiscalizar</a></li>
+		  			<li role="presentation" class="active"><a href="/#/buscar">Buscar por número</a></li>
+
+		  			<li role="presentation"><a href="/#/buscarBairro">Buscar por local</a></li>
+
+
+		  			<li role="presentation"><a href="" class="usuario">Agente: {{vm.user}}</a></li>
+
+		  			<li role="presentation"><a href="" class="usuario">Matrícula: {{vm.matricula}}</a></li>
+
+		  			<li ng-click="vm.logoff()"><a href="/#/" class="logoff">logoff</a></li>
+		  		</ul>
+  			</div>
+		</nav>
+
+		<div class="row">
+  			<div class="col-lg-6">
+    			<div class="input-group">
+      				<input type="text" class="form-control" placeholder="Buscar por..." ng-model="vm.numero">
+      				<span class="input-group-btn">
+        			<button class="btn btn-default" type="button" ng-click="vm.buscar(vm.numero)">Buscar</button>
+      				</span>
+    			</div><!-- /input-group -->
+  			</div><!-- /.col-lg-6 -->
+		</div><!-- /.row -->
+
+		<div class="fonteBranca corpoProdutos" ng-show="vm.mostrar">
+			
+			<div class="fonteBranca corpoProdutos">
+			<label class="fonteVermelha">NÚMERO DA OUVIDORIA/1746</label>
+				<p>{{vm.resposta.numero}}</p>
+			</div>
+
+			<div class="fonteBranca corpoProdutos">
+			<label class="fonteVermelha">NOME DO AGENTE</label>
+				<p>{{vm.resposta.nome}}</p>
+			</div>
+
+			<div class="fonteBranca corpoProdutos">
+			<label class="fonteVermelha">MATRÍCULA</label>
+				<p>{{vm.resposta.matricula}}</p>
+			</div>
+
+			<div class="fonteBranca corpoProdutos">
+				<label class="fonteVermelha">BAIRRO</label>
+				<p>{{vm.resposta.bairro}}</p>
+			</div>
+
+			<div class="fonteBranca corpoProdutos">
+			<label class="fonteVermelha">LOGRADOURO</label>
+				<p>{{vm.resposta.logradouro}}</p>
+			</div>
+
+			<div class="fonteBranca corpoProdutos">
+			<label class="fonteVermelha">COMPLEMENTO</label>
+				<p>{{vm.resposta.complemento}}</p>
+			</div>
+
+			<div class="fonteBranca corpoProdutos">
+			<label class="fonteVermelha">TIPO</label>
+				<p>{{vm.resposta.especie}}</p>				
+			</div>
+
+			<div class="fonteBranca corpoProdutos">
+			<label class="fonteVermelha">TIPO RESPOSTA</label>
+				<p>{{vm.resposta.tipo}}</p>
+			</div>
+
+
+			<div class="fonteBranca corpoProdutos">
+			<label class="fonteVermelha">RESPOSTA PADRÃO</label>
+				<p class="justificado">{{vm.resposta.resposta}}</p>
+			</div>
+
+		</div>
+		
+
+
+</div>
+
+
+	

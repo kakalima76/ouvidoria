@@ -32,6 +32,18 @@ angular.module('app', ['ngRoute', 'ui.bootstrap', 'vcRecaptcha'])
 		}*/
 	})
 
+	.when('/buscarBairro', {
+		templateUrl: 'template_buscarBairro/buscarBairro.html',
+		controller: 'buscarBairroController',
+		controllerAs: 'vm'/*,
+		resolve:{
+			auth: ['authService', '$window', function(authService, $window){
+				var promise = authService.autentica($window.localStorage['token']);
+				return promise;
+			}]
+		}*/
+	})
+
 	.when('/listar', {
 		templateUrl: 'template_listar/listar.html',
 		controller: 'listarController',

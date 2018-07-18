@@ -1,0 +1,74 @@
+<widget-header titulo = 'TELA DE CONSULTA'></widget-header>
+<div class="corpo">
+		<nav class="navbar navbar-inverse">
+  			<div class="container">
+		   		<ul class="nav nav-pills">
+		   			<li role="presentation" ><a href="/#/fiscalizar">Fiscalizar</a></li>
+		  			<li role="presentation"><a href="/#/buscar">Buscar por número</a></li>
+		  			<li role="presentation" class="active"><a href="/#/buscarBairro">Buscar por local</a></li>
+
+		  			<li role="presentation" ><a href="" class="usuario">Agente: {{vm.user}}</a></li>
+
+		  			<li role="presentation"><a href="" class="usuario">Matrícula: {{vm.matricula}}</a></li>
+
+		  			<li ng-click="vm.logoff()"><a href="/#/" class="logoff">logoff</a></li>
+		  		</ul>
+  			</div>
+		</nav>
+
+				<label class="fonteBranca">BAIRRO</label>
+			  	<select ng-model='vm.busca.bairro' class="form-control" ng-options="item.bairro for item in vm.bairros track by item.bairro" ng-change="vm.pegaRuas(vm.busca.bairro)"></select>
+
+				<label class="fonteBranca">LOGRADOURO</label>
+				<span class="glyphicon glyphicon-refresh glyphicon-refresh-animate" ng-show="vm.mostrarLoading">
+	          	</span>
+				<select class="form-control" ng-model='vm.busca.logradouro' ng-options="local.logradouro for local in vm.ruas track by local.logradouro">
+				</select>
+
+
+		<div class="corpoProdutos fonteBranca">
+		 	<button type="button" class="btn btn-primary btn-lg btn-block"  ng-click="vm.buscar(vm.busca)">Buscar</button>
+
+		</div>
+
+		<div class="fonteBranca corpoProdutos moldura" ng-show="vm.mostrar" ng-repeat="resposta in vm.arrayLocais">
+			
+			<div class="fonteBranca corpoProdutos">
+			<label class="fonteVermelha">NÚMERO DA OUVIDORIA/1746</label>
+				<p>{{resposta.numero}}</p>
+			</div>
+
+			<div class="fonteBranca corpoProdutos">
+			<label class="fonteVermelha">NOME DO AGENTE</label>
+				<p>{{resposta.nome}}</p>
+			</div>
+
+			<div class="fonteBranca corpoProdutos">
+			<label class="fonteVermelha">MATRÍCULA</label>
+				<p>{{resposta.matricula}}</p>
+			</div>
+
+			<div class="fonteBranca corpoProdutos">
+			<label class="fonteVermelha">TIPO</label>
+				<p>{{resposta.especie}}</p>				
+			</div>
+
+			<div class="fonteBranca corpoProdutos">
+			<label class="fonteVermelha">TIPO RESPOSTA</label>
+				<p>{{resposta.tipo}}</p>
+			</div>
+
+
+			<div class="fonteBranca corpoProdutos">
+			<label class="fonteVermelha">RESPOSTA PADRÃO</label>
+				<p class="justificado">{{resposta.resposta}}</p>
+			</div>
+
+		</div>
+		
+
+
+</div>
+
+
+	
