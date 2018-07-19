@@ -1,10 +1,12 @@
 angular.module('app')
-.controller('buscarBairroController', ['$window', 'ouvidoriaService', 'bairrosService', function($window, ouvidoriaService, bairrosService){
+.controller('buscarBairroController', ['$window', 'ouvidoriaService', 'bairrosService', 'loginService', function($window, ouvidoriaService, bairrosService, loginService){
 	var vm = this;
 	vm.resposta = {}
 	vm.mostrar = false;
 	vm.bairros = bairrosService.getBairros();
 	vm.arrayLocais = [];
+	vm.user = loginService.usuario().name;
+	vm.matricula = loginService.usuario().matricula;
 
 	function isEmpty(val){
     	return (val === undefined || val == null || val.length <= 0) ? true : false;
@@ -31,6 +33,7 @@ angular.module('app')
 			vm.mostrarLoading = false;
 			});
 	};
+
 
 
 	vm.buscar = function(value){

@@ -73,7 +73,7 @@
 					<label class="fonteBranca">LOGRADOURO</label>
 					<span class="glyphicon glyphicon-refresh glyphicon-refresh-animate" ng-show="vm.mostrarLoading">
 	          		</span>
-					<select class="form-control" ng-model='vm.ouvidoria.logradouro' ng-options="local.logradouro for local in vm.ruas track by local.logradouro">
+					<select class="form-control" ng-model='vm.ouvidoria.logradouro' ng-options="local.logradouro for local in vm.ruas track by local.logradouro" ng-change='vm.pegaCep(vm.ouvidoria.logradouro.logradouro)'>
 					</select>
 
 					<label class="fonteBranca">COMPLEMENTO</label>

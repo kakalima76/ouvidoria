@@ -1,8 +1,10 @@
 angular.module('app')
-.controller('buscarController', ['$window', 'ouvidoriaService', function($window, ouvidoriaService){
+.controller('buscarController', ['$window', 'ouvidoriaService', 'loginService', function($window, ouvidoriaService, loginService){
 	var vm = this;
 	vm.resposta = {}
 	vm.mostrar = false;
+	vm.user = loginService.usuario().name;
+	vm.matricula = loginService.usuario().matricula;
 
 	function isEmpty(val){
     	return (val === undefined || val == null || val.length <= 0) ? true : false;
