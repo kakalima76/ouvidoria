@@ -6,25 +6,25 @@
 
 		var listar = function(cpf){
 			
-			return $http.get('http://localhost:3010/ouvidoria/listar');
+			return $http.get('https://credenciais.herokuapp.com/ouvidoria/listar');
 			
 		}
 
 		var buscar = function(numero){
 			
-			return $http.post('http://localhost:3010/ouvidoria/buscar', numero);
+			return $http.post('https://credenciais.herokuapp.com/ouvidoria/buscar', numero);
 			
 		}
 
 		var buscarBairro = function(local){
 			
-			return $http.post('http://localhost:3010/ouvidoria/buscarBairro', local);
+			return $http.post('https://credenciais.herokuapp.com/ouvidoria/buscarBairro', local);
 			
 		}
 
 		var inserir = function(ouvidoria){
 			
-			return $http.post('http://localhost:3010/ouvidoria', ouvidoria);
+			return $http.post('https://credenciais.herokuapp.com/ouvidoria', ouvidoria);
 			
 		}
 
