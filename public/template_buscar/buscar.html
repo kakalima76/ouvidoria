@@ -1,4 +1,4 @@
-<widget-header titulo = 'TELA DE CONSULTA'></widget-header>
+<widget-header titulo = 'CONSULTA NÚMERO'></widget-header>
 <div class="corpo">
 		<nav class="navbar navbar-inverse">
   			<div class="container">
@@ -28,6 +28,9 @@
     			</div><!-- /input-group -->
   			</div><!-- /.col-lg-6 -->
 		</div><!-- /.row -->
+
+		<span class="glyphicon glyphicon-refresh glyphicon-refresh-animate" ng-show="vm.mostrarLoading">
+	    </span>
 
 		<div class="fonteBranca corpoProdutos" ng-show="vm.mostrar">
 			

@@ -81,6 +81,7 @@ angular.module('app')
 
 			vm.ruas = dados.data.sort(compareRuas);
 			vm.mostrarLoading = false;
+			vm.mostrarEnviar = false;
 			});
 			promise.catch(function(){
 			vm.mostrarLoading = false;
@@ -432,8 +433,17 @@ angular.module('app')
 			.then(function(lista){
 
 				vm.ouvidoria = {}
+				esconde();
 
 				console.log(lista.status);
+			})
+
+			.catch(err => {
+
+				if(err.data.code){
+					$window.alert("Ouvidoria ou chamado já inserido no sistema.");
+				}
+				
 			})
 		}
 

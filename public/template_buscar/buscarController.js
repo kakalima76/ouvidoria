@@ -5,6 +5,7 @@ angular.module('app')
 	vm.mostrar = false;
 	vm.user = loginService.usuario().name;
 	vm.matricula = loginService.usuario().matricula;
+	vm.mostrarLoading = false;
 
 	function isEmpty(val){
     	return (val === undefined || val == null || val.length <= 0) ? true : false;
@@ -12,6 +13,8 @@ angular.module('app')
 
 
 	vm.buscar = function(value){
+
+		vm.mostrarLoading = true;
 
 		vm.mostrar = false;
 
@@ -22,10 +25,16 @@ angular.module('app')
 
 				.then(data => {
 
+					vm.mostrarLoading = false;
+
 					vm.mostrar = true;
 
 					vm.resposta =  data.data[0];
 
+				})
+
+				.catch(erro => {
+					vm.mostrarLoading = false;
 				})
 
 		}else{

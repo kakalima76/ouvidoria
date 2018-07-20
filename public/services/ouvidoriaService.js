@@ -28,6 +28,12 @@
 			
 		}
 
+		/*var inserir = function(ouvidoria){
+			
+			return $http.post('http://localhost:3010/ouvidoria', ouvidoria);
+			
+		}*/
+
 
 		return {
 			listar: listar,

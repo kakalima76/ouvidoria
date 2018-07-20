@@ -80,10 +80,10 @@ header{
 .home{
   position: absolute;
   top: 45%;
-  left: 30%;
-  width: 35%;
+  left: 5%;
+  width: 90%;
   height: 63%;
-  padding: 2% 5% 5% 5%;
+  padding: 10% 5% 5% 5%;
   background-color:#1874CD;
   border-radius: 2.5em;
   -webkit-print-color-adjust: exact;

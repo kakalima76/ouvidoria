@@ -7,6 +7,7 @@ angular.module('app')
 	vm.arrayLocais = [];
 	vm.user = loginService.usuario().name;
 	vm.matricula = loginService.usuario().matricula;
+	vm.mostrarLoading2 = false;
 
 	function isEmpty(val){
     	return (val === undefined || val == null || val.length <= 0) ? true : false;
@@ -45,6 +46,7 @@ angular.module('app')
 
 
 		vm.mostrar = false;
+		vm.mostrarLoading2 = true;
 
 		if(!isEmpty(value)){
 			var promise = ouvidoriaService.buscarBairro(obj);
@@ -54,7 +56,7 @@ angular.module('app')
 				.then(data => {
 
 					vm.mostrar = true;
-
+					vm.mostrarLoading2 = false;
 					vm.arrayLocais =  data.data;
 
 

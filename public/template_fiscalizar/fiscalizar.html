@@ -86,154 +86,158 @@
 			</div>
 		</form>
 
-		<div class="fonteBranca" ng-show="vm.mostrar01">
-			<label class="fonteBranca">CONSTATAÇÃO</label>
-			<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" ng-model='vm.ouvidoria.constatadoEfetiva'></textarea>
+		<div>
 
-			<label class="fonteBranca">AÇÃO ADOTADA</label>
-			<select ng-model='vm.ouvidoria.acaoAdotadaEfetiva' class="form-control" ng-options="item for item in vm.acoesEfetiva"></select>
+			<div class="fonteBranca" ng-show="vm.mostrar01">
+				<label class="fonteBranca">CONSTATAÇÃO</label>
+				<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" ng-model='vm.ouvidoria.constatadoEfetiva'></textarea>
 
-			<button type="button" class="btn btn-primary btn-lg btn-block resposta"  ng-click="vm.gerarResp01()">Gerar Resposta Padrão</button>
-			<p class="fonteBranca justificado">{{vm.resp01}}</p>
-			
-		</div>
+				<label class="fonteBranca">AÇÃO ADOTADA</label>
+				<select ng-model='vm.ouvidoria.acaoAdotadaEfetiva' class="form-control" ng-options="item for item in vm.acoesEfetiva"></select>
 
-		<div class="fonteBranca" ng-show="vm.mostrar02">
-			<label class="fonteBranca">CONSTATAÇÃO</label>
-			<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" ng-model='vm.ouvidoria.constatadoNEfetiva'></textarea>
+				<button type="button" class="btn btn-primary btn-lg btn-block resposta"  ng-click="vm.gerarResp01()">Gerar Resposta Padrão</button>
+				<p class="fonteBranca justificado">{{vm.resp01}}</p>
+				
+			</div>
 
-			<label class="fonteBranca">AÇÃO ADOTADA</label>
-			<select ng-model='vm.ouvidoria.acaoAdotadaNEfetiva' class="form-control" ng-options="item for item in vm.acoesNEfetiva"></select>
+			<div class="fonteBranca" ng-show="vm.mostrar02">
+				<label class="fonteBranca">CONSTATAÇÃO</label>
+				<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" ng-model='vm.ouvidoria.constatadoNEfetiva'></textarea>
 
-			<button type="button" class="btn btn-primary btn-lg btn-block resposta"  ng-click="vm.gerarResp02()">Gerar Resposta Padrão</button>
-			<p class="fonteBranca justificado">{{vm.resp02}}</p>
-		</div>
+				<label class="fonteBranca">AÇÃO ADOTADA</label>
+				<select ng-model='vm.ouvidoria.acaoAdotadaNEfetiva' class="form-control" ng-options="item for item in vm.acoesNEfetiva"></select>
 
-		<div class="fonteBranca" ng-show="vm.mostrar03">
-			<label class="fonteBranca">NÚMERO DO PROCESSO</label>
-	    	<input type="text" class="form-control" ng-model='vm.ouvidoria.processoComMedidas' placeholder="informe o número do processo">
+				<button type="button" class="btn btn-primary btn-lg btn-block resposta"  ng-click="vm.gerarResp02()">Gerar Resposta Padrão</button>
+				<p class="fonteBranca justificado">{{vm.resp02}}</p>
+			</div>
 
-			<label class="fonteBranca">CONSTATAÇÃO</label>
-			<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" ng-model='vm.ouvidoria.constatadoProcessoComMedidas'></textarea>
+			<div class="fonteBranca" ng-show="vm.mostrar03">
+				<label class="fonteBranca">NÚMERO DO PROCESSO</label>
+		    	<input type="text" class="form-control" ng-model='vm.ouvidoria.processoComMedidas' placeholder="informe o número do processo">
 
-			<label class="fonteBranca">AÇÃO ADOTADA</label>
-			<select ng-model='vm.ouvidoria.acaoAdotadaProcessoComMedidas' class="form-control" ng-options="item for item in vm.acoesVistoriaMedidasIniciais"></select>
+				<label class="fonteBranca">CONSTATAÇÃO</label>
+				<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" ng-model='vm.ouvidoria.constatadoProcessoComMedidas'></textarea>
 
-			<button type="button" class="btn btn-primary btn-lg btn-block resposta"  ng-click="vm.gerarResp03()">Gerar Resposta Padrão</button>
-			<p class="fonteBranca justificado">{{vm.resp03}}</p>
+				<label class="fonteBranca">AÇÃO ADOTADA</label>
+				<select ng-model='vm.ouvidoria.acaoAdotadaProcessoComMedidas' class="form-control" ng-options="item for item in vm.acoesVistoriaMedidasIniciais"></select>
 
-		</div>
+				<button type="button" class="btn btn-primary btn-lg btn-block resposta"  ng-click="vm.gerarResp03()">Gerar Resposta Padrão</button>
+				<p class="fonteBranca justificado">{{vm.resp03}}</p>
 
-		<div class="fonteBranca" ng-show="vm.mostrar04">
-			<label class="fonteBranca">CONSTATAÇÃO</label>
-			<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" ng-model='vm.ouvidoria.constatadoProcessoSemMedidas'></textarea>
+			</div>
 
-			<label class="fonteBranca">NÚMERO DO PROCESSO</label>
-	    	<input type="text" class="form-control" ng-model='vm.ouvidoria.processoSemMedidas' placeholder="informe o número do processo">
+			<div class="fonteBranca" ng-show="vm.mostrar04">
+				<label class="fonteBranca">CONSTATAÇÃO</label>
+				<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" ng-model='vm.ouvidoria.constatadoProcessoSemMedidas'></textarea>
 
-	    	<button type="button" class="btn btn-primary btn-lg btn-block resposta"  ng-click="vm.gerarResp04()">Gerar Resposta Padrão</button>
-			<p class="fonteBranca justificado">{{vm.resp04}}</p>
-		</div>
+				<label class="fonteBranca">NÚMERO DO PROCESSO</label>
+		    	<input type="text" class="form-control" ng-model='vm.ouvidoria.processoSemMedidas' placeholder="informe o número do processo">
 
-		<div class="fonteBranca" ng-show="vm.mostrar05">
-			<label class="fonteBranca">NÚMERO DO PROCESSO</label>
-	    	<input type="text" class="form-control" ng-model='vm.ouvidoria.processoRisco' placeholder="informe o número do processo">
+		    	<button type="button" class="btn btn-primary btn-lg btn-block resposta"  ng-click="vm.gerarResp04()">Gerar Resposta Padrão</button>
+				<p class="fonteBranca justificado">{{vm.resp04}}</p>
+			</div>
 
-	    	<button type="button" class="btn btn-primary btn-lg btn-block resposta"  ng-click="vm.gerarResp05()">Gerar Resposta Padrão</button>
-			<p class="fonteBranca justificado">{{vm.resp05}}</p>
-		</div>
+			<div class="fonteBranca" ng-show="vm.mostrar05">
+				<label class="fonteBranca">NÚMERO DO PROCESSO</label>
+		    	<input type="text" class="form-control" ng-model='vm.ouvidoria.processoRisco' placeholder="informe o número do processo">
 
-		<div class="fonteBranca" ng-show="vm.mostrar06">
-			<label class="fonteBranca">NÚMERO DO PROCESSO</label>
-	    	<input type="text" class="form-control" ng-model='vm.ouvidoria.processoOperacao' placeholder="informe o número do processo">
+		    	<button type="button" class="btn btn-primary btn-lg btn-block resposta"  ng-click="vm.gerarResp05()">Gerar Resposta Padrão</button>
+				<p class="fonteBranca justificado">{{vm.resp05}}</p>
+			</div>
 
-	    	<button type="button" class="btn btn-primary btn-lg btn-block resposta"  ng-click="vm.gerarResp06()">Gerar Resposta Padrão</button>
-			<p class="fonteBranca justificado">{{vm.resp06}}</p>
-		</div>
+			<div class="fonteBranca" ng-show="vm.mostrar06">
+				<label class="fonteBranca">NÚMERO DO PROCESSO</label>
+		    	<input type="text" class="form-control" ng-model='vm.ouvidoria.processoOperacao' placeholder="informe o número do processo">
 
-		<div class="fonteBranca" ng-show="vm.mostrar07">
-			<label class="fonteBranca">NÚMERO DO PROCESSO</label>
-	    	<input type="text" class="form-control" ng-model='vm.ouvidoria.processoPolis' placeholder="informe o número do processo">
+		    	<button type="button" class="btn btn-primary btn-lg btn-block resposta"  ng-click="vm.gerarResp06()">Gerar Resposta Padrão</button>
+				<p class="fonteBranca justificado">{{vm.resp06}}</p>
+			</div>
 
-	    	<button type="button" class="btn btn-primary btn-lg btn-block resposta"  ng-click="vm.gerarResp07()">Gerar Resposta Padrão</button>
-			<p class="fonteBranca justificado">{{vm.resp07}}</p>
-		</div>
+			<div class="fonteBranca" ng-show="vm.mostrar07">
+				<label class="fonteBranca">NÚMERO DO PROCESSO</label>
+		    	<input type="text" class="form-control" ng-model='vm.ouvidoria.processoPolis' placeholder="informe o número do processo">
 
-		<div class="fonteBranca" ng-show="vm.mostrar08">
-			<label class="fonteBranca">DETALHES DA OPERAÇÃO</label>
-			<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" ng-model='vm.ouvidoria.detalhesOperacao'></textarea>
+		    	<button type="button" class="btn btn-primary btn-lg btn-block resposta"  ng-click="vm.gerarResp07()">Gerar Resposta Padrão</button>
+				<p class="fonteBranca justificado">{{vm.resp07}}</p>
+			</div>
 
-			<button type="button" class="btn btn-primary btn-lg btn-block resposta"  ng-click="vm.gerarResp08()">Gerar Resposta Padrão</button>
-			<p class="fonteBranca justificado">{{vm.resp08}}</p>
-		</div>
+			<div class="fonteBranca" ng-show="vm.mostrar08">
+				<label class="fonteBranca">DETALHES DA OPERAÇÃO</label>
+				<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" ng-model='vm.ouvidoria.detalhesOperacao'></textarea>
 
-		<div class="fonteBranca" ng-show="vm.mostrar09">
-			<label class="fonteBranca">OBSERVAÇÕES</label>
-			<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" ng-model='vm.ouvidoria.obsAtipica'></textarea>
+				<button type="button" class="btn btn-primary btn-lg btn-block resposta"  ng-click="vm.gerarResp08()">Gerar Resposta Padrão</button>
+				<p class="fonteBranca justificado">{{vm.resp08}}</p>
+			</div>
 
-			<button type="button" class="btn btn-primary btn-lg btn-block resposta"  ng-click="vm.gerarResp09()">Gerar Resposta Padrão</button>
-			<p class="fonteBranca justificado">{{vm.resp09}}</p>
-		</div>
+			<div class="fonteBranca" ng-show="vm.mostrar09">
+				<label class="fonteBranca">OBSERVAÇÕES</label>
+				<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" ng-model='vm.ouvidoria.obsAtipica'></textarea>
 
-		<div class="fonteBranca" ng-show="vm.mostrar10">
-		<button type="button" class="btn btn-primary btn-lg btn-block resposta"  ng-click="vm.gerarResp10()">Gerar Resposta Padrão</button>
-			<p class="fonteBranca justificado">{{vm.resp10}}</p>
-		</div>
+				<button type="button" class="btn btn-primary btn-lg btn-block resposta"  ng-click="vm.gerarResp09()">Gerar Resposta Padrão</button>
+				<p class="fonteBranca justificado">{{vm.resp09}}</p>
+			</div>
 
-		<div class="fonteBranca" ng-show="vm.mostrar11">
-			<label class="fonteBranca">CONSTATAÇÃO</label>
-			<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" ng-model='vm.ouvidoria.constatadoNenhumaInfracao'></textarea>
+			<div class="fonteBranca" ng-show="vm.mostrar10">
+			<button type="button" class="btn btn-primary btn-lg btn-block resposta"  ng-click="vm.gerarResp10()">Gerar Resposta Padrão</button>
+				<p class="fonteBranca justificado">{{vm.resp10}}</p>
+			</div>
 
-			<button type="button" class="btn btn-primary btn-lg btn-block resposta"  ng-click="vm.gerarResp11()">Gerar Resposta Padrão</button>
-			<p class="fonteBranca justificado">{{vm.resp11}}</p>
-		</div>
+			<div class="fonteBranca" ng-show="vm.mostrar11">
+				<label class="fonteBranca">CONSTATAÇÃO</label>
+				<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" ng-model='vm.ouvidoria.constatadoNenhumaInfracao'></textarea>
 
-		<div class="fonteBranca" ng-show="vm.mostrar12">
-			<label class="fonteBranca">INCONSISTÊNCIA</label>
-			<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" ng-model='vm.ouvidoria.inconsistenciaAnalise'></textarea>
+				<button type="button" class="btn btn-primary btn-lg btn-block resposta"  ng-click="vm.gerarResp11()">Gerar Resposta Padrão</button>
+				<p class="fonteBranca justificado">{{vm.resp11}}</p>
+			</div>
 
-			<label class="fonteBranca">DETALHES</label>
-			<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" ng-model='vm.ouvidoria.detalheAnalise'></textarea>
+			<div class="fonteBranca" ng-show="vm.mostrar12">
+				<label class="fonteBranca">INCONSISTÊNCIA</label>
+				<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" ng-model='vm.ouvidoria.inconsistenciaAnalise'></textarea>
 
-			<button type="button" class="btn btn-primary btn-lg btn-block resposta"  ng-click="vm.gerarResp12()">Gerar Resposta Padrão</button>
-			<p class="fonteBranca justificado">{{vm.resp12}}</p>
-		</div>
+				<label class="fonteBranca">DETALHES</label>
+				<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" ng-model='vm.ouvidoria.detalheAnalise'></textarea>
 
-		<div class="fonteBranca" ng-show="vm.mostrar13">
-			<label class="fonteBranca">INCONSISTÊNCIA</label>
-			<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" ng-model='vm.ouvidoria.inconsistenciaVistoria'></textarea>
+				<button type="button" class="btn btn-primary btn-lg btn-block resposta"  ng-click="vm.gerarResp12()">Gerar Resposta Padrão</button>
+				<p class="fonteBranca justificado">{{vm.resp12}}</p>
+			</div>
 
-			<label class="fonteBranca">DETALHES</label>
-			<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" ng-model='vm.ouvidoria.detalheVistoria'></textarea>
+			<div class="fonteBranca" ng-show="vm.mostrar13">
+				<label class="fonteBranca">INCONSISTÊNCIA</label>
+				<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" ng-model='vm.ouvidoria.inconsistenciaVistoria'></textarea>
 
-			<button type="button" class="btn btn-primary btn-lg btn-block resposta"  ng-click="vm.gerarResp13()">Gerar Resposta Padrão</button>
-			<p class="fonteBranca justificado">{{vm.resp13}}</p>
-		</div>
+				<label class="fonteBranca">DETALHES</label>
+				<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" ng-model='vm.ouvidoria.detalheVistoria'></textarea>
 
-		<div class="fonteBranca" ng-show="vm.mostrar14">
-			<label class="fonteBranca">ANÁLISE</label>
-			<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" ng-model='vm.ouvidoria.analiseDeCompetencia'></textarea>
+				<button type="button" class="btn btn-primary btn-lg btn-block resposta"  ng-click="vm.gerarResp13()">Gerar Resposta Padrão</button>
+				<p class="fonteBranca justificado">{{vm.resp13}}</p>
+			</div>
 
-			<label class="fonteBranca">ÓRGÃO COMPETENTE</label>
-			<select ng-model='vm.ouvidoria.orgaoCompetenteAnalise' class="form-control" ng-options="item for item in vm.orgaos""></select>
+			<div class="fonteBranca" ng-show="vm.mostrar14">
+				<label class="fonteBranca">ANÁLISE</label>
+				<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" ng-model='vm.ouvidoria.analiseDeCompetencia'></textarea>
 
-			<button type="button" class="btn btn-primary btn-lg btn-block resposta"  ng-click="vm.gerarResp14()">Gerar Resposta Padrão</button>
-			<p class="fonteBranca justificado">{{vm.resp14}}</p>
-		</div>
+				<label class="fonteBranca">ÓRGÃO COMPETENTE</label>
+				<select ng-model='vm.ouvidoria.orgaoCompetenteAnalise' class="form-control" ng-options="item for item in vm.orgaos""></select>
 
-		<div class="fonteBranca" ng-show="vm.mostrar15">
-			<label class="fonteBranca">ANÃLISE</label>
-			<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" ng-model='vm.ouvidoria.vistoriaDeCompetencia'></textarea>
+				<button type="button" class="btn btn-primary btn-lg btn-block resposta"  ng-click="vm.gerarResp14()">Gerar Resposta Padrão</button>
+				<p class="fonteBranca justificado">{{vm.resp14}}</p>
+			</div>
 
-			<label class="fonteBranca">ÓRGÃO COMPETENTE</label>
-			<select ng-model='vm.ouvidoria.orgaoCompetenteVistoria' class="form-control" ng-options="item for item in vm.orgaos""></select>
+			<div class="fonteBranca" ng-show="vm.mostrar15">
+				<label class="fonteBranca">ANÃLISE</label>
+				<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" ng-model='vm.ouvidoria.vistoriaDeCompetencia'></textarea>
 
-			<button type="button" class="btn btn-primary btn-lg btn-block resposta"  ng-click="vm.gerarResp15()">Gerar Resposta Padrão</button>
-			<p class="fonteBranca justificado">{{vm.resp15}}</p>
-		</div>
+				<label class="fonteBranca">ÓRGÃO COMPETENTE</label>
+				<select ng-model='vm.ouvidoria.orgaoCompetenteVistoria' class="form-control" ng-options="item for item in vm.orgaos""></select>
 
-		<div class="corpoProdutos fonteBranca">
-		 	<button type="button" class="btn btn-primary btn-lg btn-block"  ng-click="vm.enviar(vm.ouvidoria)" ng-show="vm.mostrarEnviar">Enviar</button>
+				<button type="button" class="btn btn-primary btn-lg btn-block resposta"  ng-click="vm.gerarResp15()">Gerar Resposta Padrão</button>
+				<p class="fonteBranca justificado">{{vm.resp15}}</p>
+			</div>
+
+			<div class="corpoProdutos fonteBranca">
+			 	<button type="button" class="btn btn-primary btn-lg btn-block"  ng-click="vm.enviar(vm.ouvidoria)" ng-show="vm.mostrarEnviar">Enviar</button>
+
+			</div>
 
 		</div>
 
