@@ -9,7 +9,7 @@ angular.module('app')
 	
 
 	vm.submit = function() {
-		vm.usuario.myRecaptchaResponse = 'x';
+		/*vm.usuario.myRecaptchaResponse = 'x';*/
 		if(vm.usuario.myRecaptchaResponse){
 			var user = {}
 
