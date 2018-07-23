@@ -12,6 +12,7 @@
 			return $http.post('https://credenciais.herokuapp.com/requestRegister', obj);
 		}
 
+
 		var trocar = function(obj){
 			return $http.post('https://credenciais.herokuapp.com/requestNewPassword', obj);
 		}
