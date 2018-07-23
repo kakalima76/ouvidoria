@@ -77,7 +77,7 @@ angular.module('app', ['ngRoute', 'ui.bootstrap', 'vcRecaptcha'])
 		.otherwise({redirectTo: '/'});
 
 	$locationProvider.html5Mode({
-  		enabled: false,
+  		enabled: true,
   		requireBase: false
 	});
 
